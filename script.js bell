@@ -1,0 +1,23 @@
+let timerElement = document.querySelector("#timer span");
+let timeLeft = 360; // 6 minutes = 360 seconds
+
+function updateTimer() {
+  let minutes = Math.floor(timeLeft / 60);
+  let seconds = timeLeft % 60;
+  timerElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+  if (timeLeft > 0) {
+    timeLeft--;
+    setTimeout(updateTimer, 1000);
+  } else {
+    playBell();
+  }
+}
+
+function playBell() {
+  let audio = new Audio('bell.mp3'); // Add bell.mp3 in project
+  audio.play();
+}
+
+// Start timer when the page loads
+window.onload = updateTimer;
