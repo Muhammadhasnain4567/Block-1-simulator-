@@ -1,0 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.header {
+  background-color: #004d40;
+  color: white;
+  padding: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  background-color: #008080;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 5px;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  background-color: #008080;
+}
+
+nav ul li a:hover {
+  background-color: #004d40;
+}
+
+.station1 {
+  background-color: #e0f7fa;
+}
+
+.station h1 {
+  color: #00796b;
+}
+
+#timer {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
