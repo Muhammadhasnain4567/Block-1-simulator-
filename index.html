@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viva Simulator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      text-align: center;
+    }
+    .station {
+      display: none;
+      padding: 20px;
+      margin: 20px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    #timer {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Viva Simulator</h1>
+<button onclick="startViva()">Start Your Viva</button>
+
+<div id="timer">Time Left: 6:00</div>
+
+<!-- Stations -->
+<div id="station-1" class="station" style="background-color: #A8DADC;">
+  <h2>Station 1</h2>
+  <img src="https://raw.githubusercontent.com/Muhammadhasnain4567/block-1-simulator-qs/main/IMG_2117.png" alt="Station Image">
+  <p>Content for Station 1...</p>
+  <button onclick="skipStation(1)">Skip (If You Have Done the Station)</button>
+</div>
+
+<div id="station-2" class="station" style="background-color: #F4A261;">
+  <h2>Station 2</h2>
+  <img src="https://raw.githubusercontent.com/Muhammadhasnain4567/block-1-simulator-qs/main/IMG_2117.png" alt="Station Image">
+  <p>Content for Station 2...</p>
+  <button onclick="skipStation(2)">Skip (If You Have Done the Station)</button>
+</div>
+
+<!-- Add similar blocks for stations 3 to 12 -->
+<script>
+  let currentStation = 0;
+  let timer;
+  const stations = document.querySelectorAll('.station');
+
+  function startViva() {
+    document.querySelector('button').style.display = 'none';
+    startStation(0);
+  }
+
+  function startStation(stationIndex) {
+    if (stationIndex < stations.length) {
+      stations[currentStation]?.classList.remove('active');
+      currentStation = stationIndex;
+      stations[currentStation].classList.add('active');
+      startTimer();
+    }
+  }
+
+  function startTimer() {
+    let timeLeft = 360;
+    document.getElementById('timer').innerHTML = `Time Left: 6:00`;
+    clearInterval(timer);
+    timer = setInterval(() => {
+      let minutes = Math.floor(timeLeft / 60);
+      let seconds = timeLeft % 60;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+      document.getElementById('timer').innerHTML = `Time Left: ${minutes}:${seconds}`;
+      if (timeLeft === 0) {
+        clearInterval(timer);
+        startStation(currentStation + 1);
+      }
+      timeLeft--;
+    }, 1000);
+  }
+
+  function skipStation(index) {
+    if (index - 1 === currentStation) {
+      startStation(index);
+    }
+  }
+</script>
+
+</body>
+</html>
