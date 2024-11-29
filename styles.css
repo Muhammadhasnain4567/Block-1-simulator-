@@ -1,49 +1,122 @@
+/* General Style */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f4f8;
-  text-align: center;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #0d3b66;
+    color: #fff;
+    text-align: center;
+}
+
+/* Home Page Style */
+#homePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://imgur.com/BI8uf7Q.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    color: white;
 }
 
 h1 {
-  color: #2a9d8f;
+    font-size: 3em;
+    color: #fff;
+    margin-top: 100px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
+.nav-btn {
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #00aaff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-btn:hover {
+    background-color: #0088cc;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+/* Station Style */
 .station {
-  display: none;
-  padding: 20px;
-  margin: 20px auto;
-  max-width: 800px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+    padding: 20px;
 }
 
 .active {
-  display: block;
+    display: block;
 }
 
+.timer {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
 button {
-  margin: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 4px;
-  background-color: #264653;
-  color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    background-color: #00aaff;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 button:hover {
-  background-color: #2a9d8f;
+    background-color: #0088cc;
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
-#timer {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #e76f51;
+img {
+    width: 80%;
+    max-width: 600px;
+    margin-top: 20px;
 }
+
+/* Timer animation */
+.timer {
+    animation: timerAnimation 1s ease-in-out infinite;
+}
+
+@keyframes timerAnimation {
+    0% { color: #ff0; }
+    50% { color: #ff00ff; }
+    100% { color: #00ff00; }
+}
+
+/* Different colors for each station */
+.station1 { background-color: #1e2a47; }
+.station2 { background-color: #253157; }
+.station3 { background-color: #2f3b66; }
+.station4 { background-color: #364c78; }
+.station5 { background-color: #3e5b8d; }
+.station6 { background-color: #4877b0; }
+.station7 { background-color: #557fc2; }
+.station8 { background-color: #688ac9; }
+.station9 { background-color: #7998d4; }
+.station10 { background-color: #8aa4d9; }
+.station11 { background-color: #9bafd6; }
+.station12 { background-color: #adc5e2; }
